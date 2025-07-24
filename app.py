@@ -1,9 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
-    return "Hello from Flask in Production!"
+def index():
+    return render_template("index.html")
 
-# No `if __name__ == "__main__"` block needed in production
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
